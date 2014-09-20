@@ -62,12 +62,22 @@ keytool -import -v \
   -storetype JKS \
   -storepass:env PW
 
+# Export the client to pkcs12, so it's safe. 
+keytool -importkeystore -v \
+  -srcalias client \
+  -srckeystore client.jks \
+  -srcstorepass:env PW \
+  -destkeystore client.p12 \
+  -deststorepass:env PW \
+  -deststoretype PKCS12
+
+
 # Export the client CA to pkcs12, so it's safe. 
 keytool -importkeystore -v \
   -srcalias clientca \
   -srckeystore client.jks \
   -srcstorepass:env PW \
-  -destkeystore client.p12 \
+  -destkeystore clientca.p12 \
   -deststorepass:env PW \
   -deststoretype PKCS12
 

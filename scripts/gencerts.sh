@@ -2,7 +2,7 @@
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-export PW=`pwgen -Bs 10 1`
+export PW=`pwgen -Bs 32 1`
 echo ${PW} > ${DIR}/password
 
 ${DIR}/genca.sh
